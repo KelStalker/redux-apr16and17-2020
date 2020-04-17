@@ -1,6 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';  //part of the library that bridges react/redux together
-import { Grid, GridRow, Button } from 'semantic-ui-react';
+// import {connect} from 'react-redux';  //part of the library that bridges react/redux together
+import { Grid } from 'semantic-ui-react';
+import Inventory from './conponents/Inventory';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
       <Grid.Row>
         { /* Products. */}
+        <Inventory />
       </Grid.Row>
 
       <Grid.Row>

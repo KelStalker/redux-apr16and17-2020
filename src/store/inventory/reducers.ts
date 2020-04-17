@@ -20,6 +20,18 @@ const initialState: InventoryState = {
       id: 3,
       name: "Shoes",
     },
+    {
+        id: 3,
+        name: "Cheap Sunglasses",
+      },
+      {
+        id: 3,
+        name: "Plasticized Cadavers",
+      },
+      {
+        id: 3,
+        name: "Toilet Paper",
+      },
   ],
 };
 

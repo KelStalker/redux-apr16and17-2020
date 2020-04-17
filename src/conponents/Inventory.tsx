@@ -1,38 +1,38 @@
-import React from 'react';
-import { RootState } from '../store';
-import { removeItemFromInventory, addItemToInventory } from '../store/inventory/action';
-import { Item } from '../store/inventory/types';
-import { Grid } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-
+import React from "react";
+import { RootState } from "../store";
+import {
+  removeItemFromInventory,
+  addItemToInventory,
+} from "../store/inventory/action";
+import { Item } from "../store/inventory/types";
+import { Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 export interface IInventoryProps {
-    removeItemFromInventory: typeof removeItemFromInventory,
-    addItemToInventory: typeof addItemToInventory,
-    items: Item[]
+  removeItemFromInventory: typeof removeItemFromInventory;
+  addItemToInventory: typeof addItemToInventory;
+  items: Item[];
 }
 
-export class inventory extends React.Component<IInventoryProps>
-{
-    render ()
-    { 
-        return (
-            <Grid>
-                { this.props.items.map( item => {
-                    return ( <p>Item</p>);
-                } ) }
-            </Grid>
-        );
-    }
+export class Inventory extends React.Component<IInventoryProps> {
+  render() {
+    return (
+      <Grid>
+        {this.props.items.map(( element, key) => (<div>{element.name} </div>) )}
+      </Grid>
+    );
+  }
 }
 
-const mapStateToProps = ( state: RootState ) => {
-    return {
-        items: state.inventory.items 
-    }
-}
+// Retrieve "items" from our "global" redux state.
+const mapStateToProps = (state: RootState) => {
+  return {
+    items: state.inventory.items,
+  };
+};
 
-export default connect(
-    mapStateToProps, 
-    { addItemToInventory, removeItemFromInventory }
-)( inventory );
+// Connect Redux and React using our values and "view!"
+export default connect(mapStateToProps, {
+  addItemToInventory,
+  removeItemFromInventory,
+})(Inventory);
